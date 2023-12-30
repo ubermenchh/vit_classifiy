@@ -26,6 +26,9 @@ jobs:
           echo '{"username":"${{ secrets.KAGGLE_USERNAME }}","key":"${{ secrets.KAGGLE_KEY }}"}' > $HOME/.kaggle/kaggle.json
           chmod 600 $HOME/.kaggle/kaggle.json
 
+      - name: Download Dataset
+        run: wget -P metadata/models/ https://huggingface.co/ubermenchh/vit_classification/raw/main/model.pth
+
       - name: Install dependencies
         run: |
           make install
