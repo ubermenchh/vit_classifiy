@@ -17,3 +17,4 @@ steps:
   - --filename=kubernetes/
   - --location=us-west1-b
   - --cluster=project-kube
+  - --service-account=733017671196-compute@developer.gserviceaccount.com
