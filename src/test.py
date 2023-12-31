@@ -96,7 +96,7 @@ if __name__ == "__main__":
     from huggingface_hub import hf_hub_download 
     repo_id = "ubermenchh/vit_classification"
     filename = "pytorch_model.bin"
-    local_path = hf_hub_download(repo_id=repo_id, filename=filename)
+    local_path = hf_hub_download(repo_id=repo_id, filename=filename, token=os.environ["HUGGINGFACEHUB_API_TOKEN"])
 
     model = torch.load(local_path, map_location=torch.device("cpu"))
     attention_viz(model, test_data, PATH)
