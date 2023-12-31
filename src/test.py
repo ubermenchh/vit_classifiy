@@ -92,7 +92,13 @@ def test(model, test_data):
 if __name__ == "__main__":
 
     PATH = "./metadata/Abbott's_babbler_(Malacocincla_abbotti).jpg"
-    model = torch.load("./metadata/models/model.pth", map_location=torch.device("cpu"))
+
+    from huggingface_hub import hf_hub_download 
+    repo_id = "ubermenchh/vit_classification"
+    filename = "pytorch_model.bin"
+    local_path = hf_hub_download(repo_id=repo_id, filename=filename)
+
+    model = torch.load(local_path, map_location=torch.device("cpu"))
     attention_viz(model, test_data, PATH)
 
     acc__, loss__, confusion_matrix = test(model, test_data)
