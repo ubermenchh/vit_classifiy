@@ -26,10 +26,9 @@ jobs:
           echo '{"username":"${{ secrets.KAGGLE_USERNAME }}","key":"${{ secrets.KAGGLE_KEY }}"}' > $HOME/.kaggle/kaggle.json
           chmod 600 $HOME/.kaggle/kaggle.json
 
-      - name: Setup HuggingFaceHub Token
-        run: export HUGGINGFACEHUB_API_TOKEN = secrets.HUGGINGFACEHUB_API_TOKEN
-
       - name: Install dependencies
+        env:
+          HUGGINGFACEHUB_API_TOKEN: ${{ secrets.HUGGINGFACEHUB_API_TOKEN }}
         run: |
           make install
           make run
