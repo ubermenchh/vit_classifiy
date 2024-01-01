@@ -9,4 +9,4 @@ seaborn==0.11.2
 matplotlib==3.5.1
 kaggle
 huggingface_hub
-altair==4.2.2
+altair<5
